@@ -4,10 +4,6 @@ from vk_api import create_user
 token = '1260767500:AAFq0jjuZ6isvMj4OPn8yizFRDmR8yG4Glc'
 bot = telebot.TeleBot(token)
 
-
-#send id to function
-# 3. пробовать получить id не ручным вводом
-#4.чтобы возращало id, для того чтобы передать в бд
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.reply_to(message,
@@ -32,7 +28,8 @@ def callback_vk_verify(call):
     try:
         if call.data=='Yes':
             bot.send_message(call.message.chat.id,'Отлично!')
-            create_user(call.message.text[call.message.text.find('?')-1:])
+            #тут пользователь должен заноситься в бд
+            #create_user(call.message.text[call.message.text.find('?')-1:])
         elif call.data=='No':
             bot.send_message(call.message.chat.id,'Проверь ник ещё раз, если что-то не так введи данные ещё раз')
         bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text='Ок!',
@@ -45,3 +42,5 @@ def callback_vk_verify(call):
 bot.polling(none_stop=True)
 
 
+#TODO: нужно  сделать чтобы он какое-то определённое время трекал
+#у всех пользователей свой период для отслеживания(у кого-то с 8 до 18:00, у кого то с 14:00 до 22:00)
