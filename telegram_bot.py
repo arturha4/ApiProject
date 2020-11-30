@@ -1,6 +1,8 @@
 import telebot
 from telebot import types
-from vk_api import create_user
+from database import create_user,show_users
+from vk_api import get_status
+import schedule
 token = '1260767500:AAFq0jjuZ6isvMj4OPn8yizFRDmR8yG4Glc'
 bot = telebot.TeleBot(token)
 
@@ -28,8 +30,8 @@ def callback_vk_verify(call):
     try:
         if call.data=='Yes':
             bot.send_message(call.message.chat.id,'Отлично!')
-            #тут пользователь должен заноситься в бд
-            #create_user(call.message.text[call.message.text.find('?')-1:])
+            create_user(call.message.chat.id,call.message.text[call.message.text.find('com/')+4:])
+            show_users()
         elif call.data=='No':
             bot.send_message(call.message.chat.id,'Проверь ник ещё раз, если что-то не так введи данные ещё раз')
         bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text='Ок!',
@@ -39,8 +41,11 @@ def callback_vk_verify(call):
 
 
 
+
+
+
 bot.polling(none_stop=True)
 
 
 #TODO: нужно  сделать чтобы он какое-то определённое время трекал
-#у всех пользователей свой период для отслеживания(у кого-то с 8 до 18:00, у кого то с 14:00 до 22:00)
+#чтобы после нажатия  да, при проверке ссылки на вк,  он больше не мог добавлять пользователя вк
