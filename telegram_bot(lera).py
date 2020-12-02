@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-from database import create_user,show_users
+from database import create_user, show_users
 from vk_api import get_status
 import schedule
 
@@ -8,28 +8,28 @@ bot = telebot.TeleBot('1260767500:AAFq0jjuZ6isvMj4OPn8yizFRDmR8yG4Glc')
 
 btn_time = telebot.types.ReplyKeyboardMarkup(True, True)
 btn_time.row('0⃣0⃣:0⃣0⃣', '0⃣0⃣:1️⃣5️⃣', '0⃣0⃣:3️⃣0⃣', '0⃣0⃣:4️⃣5️⃣')
-btn_time.row('0⃣1️⃣:0⃣0⃣','0⃣1️⃣:1️⃣5️⃣','0⃣1️⃣:3️⃣0⃣','0⃣1️⃣:4️⃣5️⃣')
-btn_time.row('0⃣2️⃣:0⃣0⃣', '0⃣2️⃣:1️⃣5️⃣','0⃣2️⃣:3️⃣0⃣','0⃣2️⃣:4️⃣5️⃣')
+btn_time.row('0⃣1️⃣:0⃣0⃣', '0⃣1️⃣:1️⃣5️⃣', '0⃣1️⃣:3️⃣0⃣', '0⃣1️⃣:4️⃣5️⃣')
+btn_time.row('0⃣2️⃣:0⃣0⃣', '0⃣2️⃣:1️⃣5️⃣', '0⃣2️⃣:3️⃣0⃣', '0⃣2️⃣:4️⃣5️⃣')
 btn_time.row('0⃣3️⃣:0⃣0⃣', '0⃣3️⃣:1️⃣5️⃣', '0⃣3️⃣:3️⃣0⃣', '0⃣3️⃣:4️⃣5️⃣')
-btn_time.row('0⃣4️⃣:0⃣0⃣', '0⃣4️⃣:1️⃣5️⃣', '0⃣4️⃣:3️⃣0⃣','0⃣4️⃣:4️⃣5️⃣')
+btn_time.row('0⃣4️⃣:0⃣0⃣', '0⃣4️⃣:1️⃣5️⃣', '0⃣4️⃣:3️⃣0⃣', '0⃣4️⃣:4️⃣5️⃣')
 btn_time.row('0⃣5️⃣:0⃣0⃣', '0⃣5️⃣:1️⃣5️⃣', '0⃣5️⃣:3️⃣0⃣', '0⃣5️⃣:4️⃣5️⃣')
 btn_time.row('0⃣6️⃣:0⃣0⃣', '0⃣6️⃣:1️⃣5️⃣', '0⃣6️⃣:3️⃣0⃣', '0⃣6️⃣:4️⃣5️⃣')
-btn_time.row('0⃣7⃣:0⃣0⃣', '0⃣7⃣:1️⃣5️⃣', '0⃣7⃣:3️⃣0⃣','0⃣7⃣:4️⃣5️⃣')
+btn_time.row('0⃣7⃣:0⃣0⃣', '0⃣7⃣:1️⃣5️⃣', '0⃣7⃣:3️⃣0⃣', '0⃣7⃣:4️⃣5️⃣')
 btn_time.row('0⃣8⃣:0⃣0⃣', '0⃣8⃣:1️⃣5️⃣', '0⃣8⃣:3️⃣0⃣', '0⃣8⃣:4️⃣5️⃣')
 btn_time.row('0⃣9⃣:0⃣0⃣', '0⃣9⃣:1️⃣5️⃣', '0⃣9⃣:3️⃣0⃣', '0⃣9⃣:4️⃣5️⃣')
 btn_time.row('1️⃣0⃣:0⃣0⃣', '1️⃣0⃣:1️⃣5️⃣', '1️⃣0⃣:3️⃣0⃣', '1️⃣0⃣:4️⃣5️⃣')
-btn_time.row('1️⃣1️⃣:0⃣0⃣','1️⃣1️⃣:1️⃣5️⃣', '1️⃣1️⃣:3️⃣0⃣', '1️⃣1️⃣:4️⃣5️⃣')
+btn_time.row('1️⃣1️⃣:0⃣0⃣', '1️⃣1️⃣:1️⃣5️⃣', '1️⃣1️⃣:3️⃣0⃣', '1️⃣1️⃣:4️⃣5️⃣')
 btn_time.row('1️⃣2️⃣:0⃣0⃣', '1️⃣2️⃣:1️⃣5️⃣', '1️⃣2️⃣:3️⃣0⃣', '1️⃣2️⃣:4️⃣5️⃣')
-btn_time.row('1️⃣3️⃣:0⃣0⃣', '1️⃣3️⃣:1️⃣5️⃣', '1️⃣3️⃣:3️⃣0⃣','1️⃣3️⃣:4️⃣5️⃣')
+btn_time.row('1️⃣3️⃣:0⃣0⃣', '1️⃣3️⃣:1️⃣5️⃣', '1️⃣3️⃣:3️⃣0⃣', '1️⃣3️⃣:4️⃣5️⃣')
 btn_time.row('1️⃣4️⃣:0⃣0⃣', '1️⃣4️⃣:1️⃣5️⃣', '1️⃣4️⃣:3️⃣0⃣', '1️⃣4️⃣:4️⃣5️⃣')
 btn_time.row('1️⃣5️⃣:0⃣0⃣', '1️⃣5️⃣:1️⃣5️⃣', '1️⃣5️⃣:3️⃣0⃣', '1️⃣5️⃣:4️⃣5️⃣')
-btn_time.row('1️⃣6️⃣:0⃣0⃣', '1️⃣6️⃣:1️⃣5️⃣', '1️⃣6️⃣:3️⃣0⃣','1️⃣6️⃣:4️⃣5️⃣')
+btn_time.row('1️⃣6️⃣:0⃣0⃣', '1️⃣6️⃣:1️⃣5️⃣', '1️⃣6️⃣:3️⃣0⃣', '1️⃣6️⃣:4️⃣5️⃣')
 btn_time.row('1️⃣7⃣:0⃣0⃣', '1️⃣7⃣:1️⃣5️⃣', '1️⃣7⃣:3️⃣0⃣', '1️⃣7⃣:4️⃣5️⃣')
 btn_time.row('1️⃣8⃣:0⃣0⃣', '1️⃣8⃣:1️⃣5️⃣', '1️⃣8⃣:3️⃣0⃣', '1️⃣8⃣:4️⃣5️⃣')
-btn_time.row('1️⃣9⃣:0⃣0⃣', '1️⃣9⃣:1️⃣5️⃣', '1️⃣9⃣:3️⃣0⃣','1️⃣9⃣:4️⃣5️⃣')
+btn_time.row('1️⃣9⃣:0⃣0⃣', '1️⃣9⃣:1️⃣5️⃣', '1️⃣9⃣:3️⃣0⃣', '1️⃣9⃣:4️⃣5️⃣')
 btn_time.row('2️⃣0⃣:0⃣0⃣', '2️⃣0⃣:1️⃣5️⃣', '2️⃣0⃣:3️⃣0⃣', '2️⃣0⃣:4️⃣5️⃣')
 btn_time.row('2️⃣1️⃣:0⃣0⃣', '2️⃣1️⃣:1️⃣5️⃣', '2️⃣1️⃣:3️⃣0⃣', '2️⃣1️⃣:4️⃣5️⃣')
-btn_time.row('2️⃣2️⃣:0⃣0⃣', '2️⃣2️⃣:1️⃣5️⃣', '2️⃣2️⃣:3️⃣0⃣','2️⃣2️⃣:4️⃣5️⃣')
+btn_time.row('2️⃣2️⃣:0⃣0⃣', '2️⃣2️⃣:1️⃣5️⃣', '2️⃣2️⃣:3️⃣0⃣', '2️⃣2️⃣:4️⃣5️⃣')
 btn_time.row('2️⃣3️⃣:0⃣0⃣', '2️⃣3️⃣:1️⃣5️⃣', '2️⃣3️⃣:3️⃣0⃣', '2️⃣3️⃣:4️⃣5️⃣')
 
 
@@ -46,7 +46,7 @@ def start_message(message):
         bot.send_message(message.from_user.id, "Напиши привет")
     elif message.text == "/start":
         bot.send_message(message.from_user.id, "Выбери время, с которого нужно начать трек.", reply_markup=btn_time)
-        bot.register_next_step_handler(message,end_track)
+        bot.register_next_step_handler(message, end_track)
     elif message.text == "/stop":
         bot.send_message(message.from_user.id, "Выбери время, на котором нужно закончить трек.", reply_markup=btn_time)
         bot.register_next_step_handler(message, services)
@@ -56,9 +56,8 @@ def start_message(message):
 
 @bot.message_handler()
 def end_track(message):
-    bot.send_message(message.chat.id, "Выбери время, на котором нужно закончить трек.",reply_markup=btn_time)
-    bot.register_next_step_handler(message,services)
-
+    bot.send_message(message.chat.id, "Выбери время, на котором нужно закончить трек.", reply_markup=btn_time)
+    bot.register_next_step_handler(message, services)
 
 
 @bot.message_handler()
@@ -86,10 +85,14 @@ def services(message):
         if call.data == "GitHub":
             bot.send_message(message.from_user.id, "Введи свой логин.")
             bot.register_next_step_handler(message, url_git)
-
         if call.data == 'Yes':
-            bot.send_message(call.message.chat.id, 'Отлично!')
-            # create_user(call.message.text[call.message.text.find('?')-1:])
+            try:
+                create_user(call.message.chat.id, call.message.text[call.message.text.find('com/') + 4:])
+                show_users()
+                bot.send_message(call.message.chat.id, 'Отлично!')
+            except:
+                bot.send_message(call.message.chat.id, 'Ты уже зарегестрирован, нажми [название команды], чтобы начать трекинг!')
+
         elif call.data == 'No':
             bot.send_message(call.message.chat.id, 'Проверь ник ещё раз, если что-то не так введи данные ещё раз')
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text='Ок!',
@@ -116,3 +119,8 @@ def services(message):
 
 
 bot.polling(none_stop=True)
+
+#добавлять в бд
+#трекать вк каждые 5 минут и обновлять бд
+#можно ли заполнять поля у записи частями
+#научиться связывать таблицы, потому что нужно добавить гит и расписание лк урфу
